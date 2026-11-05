@@ -1,0 +1,2782 @@
+/* ==========================================================================
+   AgriMitra AI - Modern Agriculture & Farmer Portal
+   Vibrant, Colorful, High-Performance Design System
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap');
+
+:root {
+  /* Color Palette - Vibrant Agricultural Harmony */
+  --primary: #15803d;
+  --primary-hover: #166534;
+  --primary-light: #22c55e;
+  --primary-subtle: #dcfce7;
+  
+  --emerald: #059669;
+  --emerald-glow: rgba(16, 185, 129, 0.35);
+
+  --harvest-gold: #f59e0b;
+  --harvest-gold-dark: #b45309;
+  --harvest-gold-subtle: #fef3c7;
+
+  --sky-blue: #0284c7;
+  --sky-blue-light: #38bdf8;
+  --sky-blue-subtle: #e0f2fe;
+
+  --earth-rust: #c2410c;
+  --earth-rust-subtle: #ffedd5;
+
+  --danger: #dc2626;
+  --danger-subtle: #fee2e2;
+  --warning: #eab308;
+  --success: #16a34a;
+  --info: #2563eb;
+
+  /* Surfaces & Backgrounds */
+  --bg-main: #f8faf5;
+  --bg-card: #ffffff;
+  --bg-card-glass: rgba(255, 255, 255, 0.88);
+  --border-subtle: #e2e8f0;
+  --border-focus: #16a34a;
+
+  /* Text Colors */
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --text-inverse: #ffffff;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.07), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 14px -2px rgba(0, 0, 0, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 10px -2px rgba(0, 0, 0, 0.05);
+  --shadow-glow: 0 0 25px rgba(34, 197, 94, 0.35);
+
+  /* Border Radii */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* Fonts */
+  --font-heading: 'Outfit', 'Noto Sans Devanagari', -apple-system, sans-serif;
+  --font-body: 'Plus Jakarta Sans', 'Noto Sans Devanagari', -apple-system, sans-serif;
+
+  /* Transitions */
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(34, 197, 94, 0.08) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(245, 158, 11, 0.08) 0px, transparent 50%),
+    radial-gradient(at 100% 20%, rgba(2, 132, 199, 0.06) 0px, transparent 40%);
+  background-attachment: fixed;
+}
+
+/* High contrast mode / Farmer Friendly Large Text */
+body.large-text {
+  font-size: 18px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Layout Utilities */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: 5rem 0;
+  position: relative;
+}
+
+.section-title-wrap {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 3.5rem;
+}
+
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.85rem;
+}
+
+.badge-green {
+  background: var(--primary-subtle);
+  color: var(--primary);
+  border: 1px solid rgba(22, 163, 74, 0.25);
+}
+
+.badge-gold {
+  background: var(--harvest-gold-subtle);
+  color: var(--harvest-gold-dark);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.badge-blue {
+  background: var(--sky-blue-subtle);
+  color: var(--sky-blue);
+  border: 1px solid rgba(2, 132, 199, 0.3);
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   Header & Navigation
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.75rem;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.45rem;
+  color: #0f172a;
+}
+
+.brand-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #22c55e, #15803d);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.35);
+}
+
+.brand-text span {
+  color: var(--primary);
+}
+
+.brand-tagline {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--harvest-gold-dark);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  list-style: none;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #334155;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--primary);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Language Dropdown Selector */
+.lang-selector-wrap {
+  position: relative;
+}
+
+.lang-select-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f1f5f9;
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #1e293b;
+  border: 1px solid #e2e8f0;
+  transition: var(--transition);
+}
+
+.lang-select-btn:hover {
+  background: #e2e8f0;
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  background: white;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-subtle);
+  padding: 0.5rem;
+  width: 180px;
+  display: none;
+  z-index: 1010;
+}
+
+.lang-dropdown.show {
+  display: block;
+  animation: fadeInDown 0.2s ease-out;
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #334155;
+  transition: var(--transition);
+}
+
+.lang-option:hover {
+  background: var(--primary-subtle);
+  color: var(--primary);
+}
+
+.lang-option.active {
+  background: var(--primary-subtle);
+  color: var(--primary);
+  font-weight: 700;
+}
+
+/* Header Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.4rem;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #22c55e, #15803d);
+  color: white;
+  box-shadow: 0 4px 15px rgba(22, 163, 74, 0.35);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(22, 163, 74, 0.45);
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, #fbbf24, #d97706);
+  color: #451a03;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.35);
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(245, 158, 11, 0.45);
+}
+
+.btn-outline {
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.btn-voice-quick {
+  background: #fee2e2;
+  color: #dc2626;
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  padding: 0.5rem 1rem;
+}
+
+.btn-voice-quick:hover {
+  background: #fecaca;
+  transform: scale(1.03);
+}
+
+.mobile-toggle {
+  display: none;
+  font-size: 1.5rem;
+  color: #334155;
+}
+
+/* ==========================================================================
+   Hero Section with Vibrant Male Farmer Imagery & Micro-Interactions
+   ========================================================================== */
+.hero-section {
+  padding: 3.5rem 0 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 1.15rem;
+  border-radius: var(--radius-full);
+  background: linear-gradient(90deg, #ecfdf5, #fef3c7);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #14532d;
+  margin-bottom: 1.25rem;
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: 3.4rem;
+  font-weight: 800;
+  line-height: 1.12;
+  color: #0f172a;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.hero-title .gradient-text {
+  background: linear-gradient(135deg, #15803d 0%, #059669 50%, #d97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  color: #475569;
+  line-height: 1.65;
+  margin-bottom: 2rem;
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.hero-stats-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.hero-stat-item h4 {
+  font-family: var(--font-heading);
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+
+.hero-stat-item p {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+/* Hero Media with Male Farmer Photo */
+.hero-visual {
+  position: relative;
+}
+
+.hero-image-card {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 20px 40px -10px rgba(22, 101, 52, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.8);
+  background: white;
+  aspect-ratio: 4/3;
+}
+
+.hero-image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.hero-image-card:hover img {
+  transform: scale(1.03);
+}
+
+.hero-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.75) 0%, rgba(15, 23, 42, 0.05) 50%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.75rem;
+  color: white;
+}
+
+.hero-badge-live {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  color: #86efac;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(134, 239, 172, 0.3);
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+.hero-caption-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.hero-caption-sub {
+  font-size: 0.9rem;
+  color: #e2e8f0;
+}
+
+/* Floating interactive widgets on hero */
+.floating-card {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border-radius: var(--radius-md);
+  padding: 0.9rem 1.2rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  z-index: 3;
+  animation: float 4s ease-in-out infinite;
+}
+
+.floating-card-1 {
+  bottom: -1.5rem;
+  left: -2rem;
+  animation-delay: 0s;
+}
+
+.floating-card-2 {
+  top: 2rem;
+  right: -1.75rem;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.floating-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+}
+
+.floating-icon.gold {
+  background: var(--harvest-gold-subtle);
+  color: var(--harvest-gold-dark);
+}
+
+.floating-icon.blue {
+  background: var(--sky-blue-subtle);
+  color: var(--sky-blue);
+}
+
+.floating-text h5 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.floating-text p {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #64748b;
+}
+
+/* ==========================================================================
+   Upcoming Weather & Agri-Advisory Section
+   ========================================================================== */
+.weather-section {
+  background: linear-gradient(180deg, rgba(224, 242, 254, 0.3) 0%, rgba(248, 250, 245, 0.8) 100%);
+  border-top: 1px solid rgba(226, 232, 240, 0.8);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+/* ==========================================================================
+   Weather Anywhere Search & Farm Microclimate Customization
+   ========================================================================== */
+.weather-search-bar-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.weather-search-box {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  align-items: center;
+  background: white;
+  border: 2px solid #cbd5e1;
+  border-radius: var(--radius-full);
+  padding: 0.35rem 0.6rem 0.35rem 1.25rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.weather-search-box:focus-within {
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.2);
+}
+
+.weather-search-box .search-icon {
+  font-size: 1.15rem;
+  margin-right: 0.5rem;
+  color: #64748b;
+}
+
+.weather-search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 0.95rem;
+  color: #0f172a;
+  background: transparent;
+}
+
+.btn-search-weather {
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.35rem;
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.btn-search-weather:hover {
+  background: #0284c7;
+  transform: translateY(-1px);
+}
+
+.btn-customize-weather {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  color: #1e293b;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: var(--transition);
+}
+
+.btn-customize-weather:hover, .btn-customize-weather.active {
+  background: #e0f2fe;
+  color: #0284c7;
+  border-color: #38bdf8;
+}
+
+/* Quick Locations Bar */
+.weather-quick-chips {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.quick-chip-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #64748b;
+  margin-right: 0.25rem;
+}
+
+.weather-city-chip {
+  background: white;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.825rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.weather-city-chip:hover {
+  background: #f0fdf4;
+  border-color: #16a34a;
+  color: #15803d;
+  transform: translateY(-1px);
+}
+
+/* Interactive Weather Customization Panel */
+.weather-customize-panel {
+  background: #f0fdf4;
+  border: 2px dashed #86efac;
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  margin-bottom: 2rem;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.customize-panel-header {
+  margin-bottom: 1.25rem;
+}
+
+.customize-panel-header h4 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #166534;
+  margin-bottom: 0.35rem;
+}
+
+.customize-panel-header p {
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+
+.customize-controls-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.cust-control-group {
+  background: white;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid #dcfce7;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cust-control-group label {
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: #1e293b;
+  display: flex;
+  justify-content: space-between;
+}
+
+.cust-control-group input[type="text"], .cust-control-group select {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+  outline: none;
+}
+
+.cust-control-group input[type="range"] {
+  accent-color: #16a34a;
+  cursor: pointer;
+}
+
+.customize-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+.weather-header-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  background: white;
+  padding: 1.25rem 1.75rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid #e2e8f0;
+  margin-bottom: 2rem;
+}
+
+.weather-location-select {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+  max-width: 420px;
+}
+
+.weather-select-input {
+  width: 100%;
+  padding: 0.65rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid #cbd5e1;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1e293b;
+  outline: none;
+  background: #f8fafc;
+  transition: var(--transition);
+}
+
+.weather-select-input:focus {
+  border-color: var(--primary);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+}
+
+.weather-gps-btn {
+  padding: 0.65rem 1rem;
+  background: var(--sky-blue-subtle);
+  color: var(--sky-blue);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: var(--transition);
+}
+
+.weather-gps-btn:hover {
+  background: #bae6fd;
+}
+
+.weather-updated-pill {
+  font-size: 0.85rem;
+  color: #64748b;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Weather Main Dashboard Grid */
+.weather-dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 1.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.weather-primary-card {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 60%, #075985 100%);
+  color: white;
+  border-radius: var(--radius-xl);
+  padding: 2.25rem;
+  box-shadow: 0 15px 35px -5px rgba(2, 132, 199, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.weather-bg-decor {
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  font-size: 11rem;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.weather-primary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.weather-loc-title {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 800;
+}
+
+.weather-date-sub {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+.weather-temp-display {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.weather-big-icon {
+  font-size: 4.5rem;
+  filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));
+}
+
+.weather-degree {
+  font-family: var(--font-heading);
+  font-size: 4.25rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.weather-desc-pill {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(6px);
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-full);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+
+/* Microclimate Metrics Row */
+.weather-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  background: rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius-md);
+  padding: 1.15rem;
+  position: relative;
+  z-index: 2;
+}
+
+.metric-item {
+  text-align: center;
+}
+
+.metric-label {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.2rem;
+}
+
+.metric-val {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+/* Farm Advisory Card */
+.advisory-card-wrap {
+  background: white;
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+}
+
+.advisory-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.advisory-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+}
+
+.advisory-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  background: #f8fafc;
+  border-left: 4px solid #94a3b8;
+  transition: var(--transition);
+}
+
+.advisory-item.optimal {
+  border-left-color: var(--primary);
+  background: #f0fdf4;
+}
+
+.advisory-item.warning {
+  border-left-color: var(--harvest-gold);
+  background: #fffbeb;
+}
+
+.advisory-item.alert {
+  border-left-color: var(--danger);
+  background: #fef2f2;
+}
+
+.advisory-icon-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+
+.optimal .advisory-icon-badge { background: #dcfce7; color: var(--primary); }
+.warning .advisory-icon-badge { background: #fef3c7; color: var(--harvest-gold-dark); }
+.alert .advisory-icon-badge { background: #fee2e2; color: var(--danger); }
+
+.advisory-text h5 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.2rem;
+}
+
+.advisory-text p {
+  font-size: 0.85rem;
+  color: #475569;
+  line-height: 1.45;
+}
+
+/* 7-Day Forecast Grid */
+.forecast-section-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 1.25rem;
+}
+
+.forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.85rem;
+}
+
+.forecast-card {
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 1.25rem 0.75rem;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.forecast-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary);
+}
+
+.forecast-card.today {
+  border: 2px solid var(--primary);
+  background: #f0fdf4;
+}
+
+.forecast-day {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #1e293b;
+  margin-bottom: 0.25rem;
+}
+
+.forecast-date {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin-bottom: 0.75rem;
+}
+
+.forecast-icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.forecast-temps {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.forecast-max { color: #0f172a; }
+.forecast-min { color: #94a3b8; font-weight: 500; }
+
+.forecast-rain-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #0284c7;
+  background: #e0f2fe;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-full);
+}
+
+/* ==========================================================================
+   AI Crop Disease Scanner Section
+   ========================================================================== */
+.scanner-section {
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.scanner-container-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* Upload & Drop Zone */
+.scanner-upload-box {
+  background: #f8fafc;
+  border: 2px dashed #cbd5e1;
+  border-radius: var(--radius-xl);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  transition: var(--transition);
+  position: relative;
+  cursor: pointer;
+}
+
+.scanner-upload-box:hover, .scanner-upload-box.dragover {
+  border-color: var(--primary);
+  background: #f0fdf4;
+}
+
+.upload-icon-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--primary-subtle);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.25rem;
+  margin: 0 auto 1.25rem;
+  transition: var(--transition);
+}
+
+.scanner-upload-box:hover .upload-icon-circle {
+  transform: scale(1.08);
+}
+
+.upload-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.4rem;
+}
+
+.upload-sub {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 1.25rem;
+}
+
+.upload-btn-fake {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--primary);
+  color: white;
+  padding: 0.65rem 1.5rem;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+}
+
+#cropFileInput {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Sample Quick-Test Photos */
+.sample-crops-bar {
+  margin-top: 1.5rem;
+}
+
+.sample-crops-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #475569;
+  margin-bottom: 0.65rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.sample-chips-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.sample-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-md);
+  padding: 0.6rem;
+  text-align: left;
+  transition: var(--transition);
+}
+
+.sample-chip:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.sample-chip img {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+}
+
+.sample-chip-text h6 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.2;
+}
+
+.sample-chip-text span {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+/* Visual Scanning HUD & Preview */
+.scanner-viewport-wrap {
+  position: relative;
+  background: #0f172a;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  min-height: 460px;
+  display: flex;
+  flex-direction: column;
+}
+
+.scanner-viewport-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  text-align: center;
+  color: #94a3b8;
+}
+
+.scanner-empty-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.scanner-active-view {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  background: #000;
+}
+
+.scanner-active-view img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* High-Tech HUD Laser Scanline */
+.scanner-laser-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #22c55e, #86efac, #22c55e, transparent);
+  box-shadow: 0 0 15px #22c55e, 0 0 30px #22c55e;
+  z-index: 10;
+  display: none;
+}
+
+.scanning .scanner-laser-line {
+  display: block;
+  animation: laserScan 2.4s ease-in-out infinite alternate;
+}
+
+@keyframes laserScan {
+  0% { top: 4%; }
+  100% { top: 94%; }
+}
+
+/* Grid & HUD Target Reticle */
+.scanner-hud-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.hud-corner {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-color: #22c55e;
+  border-style: solid;
+}
+
+.hud-tl { top: 16px; left: 16px; border-width: 3px 0 0 3px; }
+.hud-tr { top: 16px; right: 16px; border-width: 3px 3px 0 0; }
+.hud-bl { bottom: 16px; left: 16px; border-width: 0 0 3px 3px; }
+.hud-br { bottom: 16px; right: 16px; border-width: 0 3px 3px 0; }
+
+.scanner-status-strip {
+  background: rgba(15, 23, 42, 0.95);
+  padding: 1.15rem 1.5rem;
+  color: white;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.scan-progress-box {
+  flex: 1;
+  margin-right: 1.5rem;
+}
+
+.scan-progress-label {
+  font-size: 0.85rem;
+  color: #86efac;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #22c55e, #10b981);
+  transition: width 0.3s ease;
+}
+
+/* Diagnosis Result Card */
+.diagnosis-result-wrap {
+  display: none;
+  margin-top: 2rem;
+  grid-column: 1 / -1;
+  background: white;
+  border-radius: var(--radius-xl);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid #e2e8f0;
+  animation: fadeInUp 0.4s ease-out;
+}
+
+.diagnosis-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 1.75rem;
+}
+
+.diagnosis-title-group h3 {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.pathogen-name {
+  font-style: italic;
+  color: #64748b;
+  font-size: 1rem;
+}
+
+.confidence-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #dcfce7;
+  color: #15803d;
+  padding: 0.45rem 1.15rem;
+  border-radius: var(--radius-full);
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.diagnosis-sections-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.solution-box {
+  background: #f8fafc;
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  border: 1px solid #e2e8f0;
+}
+
+.solution-box.organic {
+  border-top: 4px solid #16a34a;
+  background: #f0fdf4;
+}
+
+.solution-box.chemical {
+  border-top: 4px solid #2563eb;
+  background: #eff6ff;
+}
+
+.solution-box.prevent {
+  border-top: 4px solid #f59e0b;
+  background: #fffbeb;
+}
+
+.solution-box-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.solution-list {
+  list-style: none;
+}
+
+.solution-list li {
+  font-size: 0.9rem;
+  color: #334155;
+  margin-bottom: 0.6rem;
+  position: relative;
+  padding-left: 1.25rem;
+  line-height: 1.45;
+}
+
+.solution-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.diagnosis-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+/* ==========================================================================
+   Farmers Multilingual AI Chatbot & Voice Assistant Section
+   ========================================================================== */
+.chatbot-section {
+  background: linear-gradient(180deg, #f8faf5 0%, #ecfdf5 100%);
+}
+
+.chatbot-wrapper {
+  max-width: 980px;
+  margin: 0 auto;
+  background: white;
+  border-radius: var(--radius-xl);
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.1), 0 0 0 1px #e2e8f0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 680px;
+}
+
+/* Chat Header */
+.chat-header {
+  background: linear-gradient(135deg, #15803d, #059669);
+  color: white;
+  padding: 1.25rem 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chat-bot-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.chat-avatar-wrap {
+  position: relative;
+}
+
+.chat-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid white;
+  object-fit: cover;
+}
+
+.chat-status-dot {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  background: #22c55e;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+.chat-bot-name h4 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.chat-bot-name p {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.chat-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.chat-lang-select {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 700;
+  outline: none;
+  cursor: pointer;
+}
+
+.chat-lang-select option {
+  color: #0f172a;
+}
+
+.chat-sound-toggle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  transition: var(--transition);
+}
+
+.chat-sound-toggle:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* Chat Messages Area */
+.chat-messages {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background: #fafafa;
+}
+
+.message-row {
+  display: flex;
+  gap: 0.85rem;
+  max-width: 82%;
+  animation: fadeIn 0.3s ease;
+}
+
+.message-row.bot {
+  align-self: flex-start;
+}
+
+.message-row.user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.msg-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.msg-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.msg-bubble {
+  padding: 1rem 1.25rem;
+  border-radius: 18px;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  position: relative;
+}
+
+.message-row.bot .msg-bubble {
+  background: white;
+  color: #1e293b;
+  border: 1px solid #e2e8f0;
+  box-shadow: var(--shadow-sm);
+  border-top-left-radius: 4px;
+}
+
+.message-row.user .msg-bubble {
+  background: linear-gradient(135deg, #15803d, #16a34a);
+  color: white;
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.25);
+  border-top-right-radius: 4px;
+}
+
+.msg-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: #94a3b8;
+}
+
+.message-row.user .msg-footer {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.tts-btn {
+  background: #f1f5f9;
+  border-radius: var(--radius-full);
+  padding: 0.25rem 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #334155;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: var(--transition);
+}
+
+.tts-btn:hover {
+  background: var(--primary-subtle);
+  color: var(--primary);
+}
+
+/* Quick Prompt Chips */
+.quick-prompts-bar {
+  padding: 0.75rem 1.25rem;
+  background: white;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.quick-chip {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.825rem;
+  font-weight: 600;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.quick-chip:hover {
+  background: var(--primary-subtle);
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* Chat Input Bar */
+.chat-input-area {
+  padding: 1rem 1.25rem;
+  background: white;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.chat-input-wrap {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.chat-input {
+  width: 100%;
+  padding: 0.85rem 1.25rem;
+  padding-right: 3rem;
+  border-radius: var(--radius-full);
+  border: 1px solid #cbd5e1;
+  font-size: 0.95rem;
+  color: #0f172a;
+  outline: none;
+  background: #f8fafc;
+  transition: var(--transition);
+}
+
+.chat-input:focus {
+  border-color: var(--primary);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.18);
+}
+
+/* Microphone Voice Button & Animation */
+.btn-mic {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #fee2e2;
+  color: #dc2626;
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  transition: var(--transition);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.btn-mic:hover {
+  background: #fecaca;
+  transform: scale(1.05);
+}
+
+.btn-mic.listening {
+  background: #dc2626;
+  color: white;
+  animation: micPulse 1.2s infinite;
+}
+
+@keyframes micPulse {
+  0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.6); }
+  70% { box-shadow: 0 0 0 14px rgba(220, 38, 38, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+}
+
+.btn-send {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #22c55e, #15803d);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.btn-send:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(22, 163, 74, 0.4);
+}
+
+/* Voice Live Visualizer Bar */
+.voice-listening-banner {
+  display: none;
+  background: #dc2626;
+  color: white;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.voice-listening-banner.active {
+  display: flex;
+}
+
+.sound-waves {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 20px;
+}
+
+.sound-bar {
+  width: 3px;
+  background: white;
+  border-radius: 2px;
+  animation: soundWave 0.6s infinite ease-in-out alternate;
+}
+
+.sound-bar:nth-child(1) { height: 6px; animation-delay: 0.1s; }
+.sound-bar:nth-child(2) { height: 16px; animation-delay: 0.3s; }
+.sound-bar:nth-child(3) { height: 10px; animation-delay: 0.2s; }
+.sound-bar:nth-child(4) { height: 18px; animation-delay: 0.4s; }
+.sound-bar:nth-child(5) { height: 8px; animation-delay: 0.15s; }
+
+@keyframes soundWave {
+  0% { transform: scaleY(0.4); }
+  100% { transform: scaleY(1.4); }
+}
+
+/* ==========================================================================
+   Voice Assistant Listening Modal & Interactive Audio HUD
+   ========================================================================== */
+.voice-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 1.25rem;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.voice-modal-overlay.active {
+  display: flex;
+}
+
+.voice-modal-card {
+  background: white;
+  border-radius: var(--radius-2xl, 24px);
+  width: 100%;
+  max-width: 580px;
+  padding: 2rem;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.35);
+  position: relative;
+  border: 1px solid #e2e8f0;
+  text-align: center;
+  animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes scaleUp {
+  0% { transform: scale(0.92); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.voice-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: #f1f5f9;
+  color: #64748b;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.voice-modal-close:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.voice-status-header {
+  margin-bottom: 1rem;
+}
+
+.voice-pulse-ring {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.voice-ring-wave {
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: rgba(220, 38, 38, 0.25);
+  animation: pulseRing 1.8s infinite cubic-bezier(0, 0.2, 0.8, 1);
+}
+
+.voice-ring-wave.delay {
+  animation-delay: 0.9s;
+}
+
+@keyframes pulseRing {
+  0% { transform: scale(0.85); opacity: 0.9; }
+  100% { transform: scale(1.65); opacity: 0; }
+}
+
+.voice-main-mic-btn {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 25px rgba(220, 38, 38, 0.4);
+  z-index: 2;
+  position: relative;
+  transition: var(--transition);
+}
+
+.voice-main-mic-btn:hover {
+  transform: scale(1.06);
+}
+
+.voice-main-mic-btn.active {
+  animation: micBeat 1s infinite alternate;
+}
+
+@keyframes micBeat {
+  0% { transform: scale(1); filter: brightness(1); }
+  100% { transform: scale(1.08); filter: brightness(1.2); }
+}
+
+.voice-status-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.25rem;
+}
+
+.voice-status-header p {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+/* Language Switcher Pills inside Voice Modal */
+.voice-lang-pills-wrap {
+  margin: 1rem 0;
+}
+
+.voice-lang-pills-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.voice-lang-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.voice-lang-pill {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.voice-lang-pill:hover {
+  border-color: #16a34a;
+  color: #16a34a;
+  background: #f0fdf4;
+}
+
+.voice-lang-pill.active {
+  background: #16a34a;
+  color: white;
+  border-color: #16a34a;
+  box-shadow: 0 4px 10px rgba(22, 163, 74, 0.25);
+}
+
+/* Sound Waves inside Modal */
+.modal-sound-waves {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  height: 28px;
+  margin: 0.75rem 0;
+}
+
+.modal-sound-waves .m-wave {
+  width: 4px;
+  background: #dc2626;
+  border-radius: 3px;
+  height: 8px;
+  animation: modalSoundWave 0.6s infinite ease-in-out alternate;
+}
+
+.modal-sound-waves .m-wave:nth-child(1) { height: 10px; animation-delay: 0.1s; }
+.modal-sound-waves .m-wave:nth-child(2) { height: 22px; animation-delay: 0.25s; }
+.modal-sound-waves .m-wave:nth-child(3) { height: 16px; animation-delay: 0.15s; }
+.modal-sound-waves .m-wave:nth-child(4) { height: 28px; animation-delay: 0.4s; }
+.modal-sound-waves .m-wave:nth-child(5) { height: 18px; animation-delay: 0.2s; }
+.modal-sound-waves .m-wave:nth-child(6) { height: 24px; animation-delay: 0.35s; }
+.modal-sound-waves .m-wave:nth-child(7) { height: 12px; animation-delay: 0.1s; }
+
+@keyframes modalSoundWave {
+  0% { transform: scaleY(0.35); }
+  100% { transform: scaleY(1.35); }
+}
+
+/* Live Voice Transcription Box */
+.voice-transcript-box {
+  background: #f8fafc;
+  border: 2px dashed #cbd5e1;
+  border-radius: var(--radius-lg);
+  padding: 1.15rem;
+  min-height: 80px;
+  max-height: 120px;
+  overflow-y: auto;
+  margin: 1rem 0;
+  font-size: 1rem;
+  color: #0f172a;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.transcript-placeholder {
+  color: #94a3b8;
+  font-style: italic;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.transcript-live-text {
+  font-weight: 600;
+  color: #0f172a;
+  line-height: 1.5;
+  display: none;
+}
+
+.transcript-live-text.active {
+  display: block;
+}
+
+/* Voice Prompt Quick Suggestion Chips */
+.voice-suggestions-wrap {
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.voice-suggestions-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #475569;
+}
+
+.voice-suggestions-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.5rem;
+}
+
+.voice-chip-btn {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.825rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: left;
+}
+
+.voice-chip-btn:hover {
+  background: #dcfce7;
+  border-color: #22c55e;
+  transform: translateY(-1px);
+}
+
+.voice-modal-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+/* ==========================================================================
+   Crop Farming Guides & Planting Blueprints Section
+   ========================================================================== */
+.farming-guides-section {
+  background: white;
+  border-top: 1px solid #e2e8f0;
+}
+
+.guide-filter-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 2.5rem;
+}
+
+.guide-tab-btn {
+  padding: 0.6rem 1.35rem;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #475569;
+  background: #f1f5f9;
+  transition: var(--transition);
+}
+
+.guide-tab-btn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.guide-tab-btn.active {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+}
+
+.crop-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 1.75rem;
+}
+
+.crop-card {
+  background: white;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.crop-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: #86efac;
+}
+
+.crop-card-img-wrap {
+  height: 180px;
+  position: relative;
+  overflow: hidden;
+}
+
+.crop-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.crop-card:hover .crop-card-img-wrap img {
+  transform: scale(1.08);
+}
+
+.crop-tag {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(6px);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+}
+
+.crop-card-body {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.crop-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.3rem;
+}
+
+.crop-botanical {
+  font-size: 0.85rem;
+  color: #64748b;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.crop-quick-specs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+}
+
+.spec-cell {
+  background: #f8fafc;
+  padding: 0.6rem;
+  border-radius: var(--radius-sm);
+}
+
+.spec-cell-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #94a3b8;
+  font-weight: 700;
+}
+
+.spec-cell-val {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.btn-view-blueprint {
+  margin-top: auto;
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: var(--radius-md);
+  background: var(--primary-subtle);
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.btn-view-blueprint:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* ==========================================================================
+   Tools: NPK Fertilizer Calculator & Mandi Market Rates
+   ========================================================================== */
+.tools-section {
+  background: #f8fafc;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2.5rem;
+}
+
+.tool-card {
+  background: white;
+  border-radius: var(--radius-xl);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid #e2e8f0;
+}
+
+.tool-header {
+  margin-bottom: 1.75rem;
+}
+
+.tool-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.35rem;
+}
+
+.tool-header p {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+/* Calculator Form */
+.calc-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #334155;
+  margin-bottom: 0.4rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid #cbd5e1;
+  font-size: 0.95rem;
+  outline: none;
+  background: #f8fafc;
+  transition: var(--transition);
+}
+
+.form-control:focus {
+  border-color: var(--primary);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+}
+
+.calc-results-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  text-align: center;
+}
+
+.calc-res-item h5 {
+  font-size: 0.8rem;
+  color: #15803d;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.calc-res-val {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.calc-res-sub {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+/* Mandi Ticker */
+.mandi-table-wrap {
+  overflow-x: auto;
+}
+
+.mandi-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.mandi-table th {
+  padding: 0.75rem 1rem;
+  background: #f8fafc;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: #64748b;
+  font-weight: 700;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.mandi-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 0.9rem;
+}
+
+.crop-name-cell {
+  font-weight: 700;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.price-up { color: #16a34a; font-weight: 700; }
+.price-down { color: #dc2626; font-weight: 700; }
+
+/* ==========================================================================
+   Modal: Step-by-Step Planting Blueprint
+   ========================================================================== */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(6px);
+  z-index: 2000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.modal-backdrop.open {
+  display: flex;
+  animation: fadeIn 0.25s ease-out;
+}
+
+.blueprint-modal {
+  background: white;
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 820px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+
+.modal-header {
+  padding: 1.75rem 2rem;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 10;
+}
+
+.modal-title-wrap h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.modal-close-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  color: #475569;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  transition: var(--transition);
+}
+
+.modal-close-btn:hover {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+.roadmap-step {
+  display: flex;
+  gap: 1.5rem;
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.roadmap-step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 40px;
+  left: 20px;
+  bottom: 0;
+  width: 2px;
+  background: #e2e8f0;
+}
+
+.step-num-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  z-index: 2;
+  box-shadow: 0 4px 10px rgba(22, 163, 74, 0.3);
+}
+
+.step-content h5 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.4rem;
+}
+
+.step-content p {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.55;
+}
+
+/* ==========================================================================
+   Footer & Helpline Section
+   ========================================================================== */
+.site-footer {
+  background: #0f172a;
+  color: #cbd5e1;
+  padding: 4.5rem 0 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  gap: 3rem;
+  margin-bottom: 3.5rem;
+}
+
+.footer-brand h4 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.footer-brand p {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.footer-col h5 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1.25rem;
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.footer-links a:hover {
+  color: #86efac;
+}
+
+.helpline-box {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+}
+
+.helpline-num {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #f59e0b;
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .weather-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  .forecast-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .scanner-container-grid {
+    grid-template-columns: 1fr;
+  }
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .nav-links {
+    display: none;
+  }
+  .mobile-toggle {
+    display: block;
+  }
+  .forecast-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .diagnosis-sections-grid {
+    grid-template-columns: 1fr;
+  }
+  .calc-form-grid {
+    grid-template-columns: 1fr;
+  }
+  .calc-results-box {
+    grid-template-columns: 1fr;
+  }
+  .floating-card {
+    display: none;
+  }
+}

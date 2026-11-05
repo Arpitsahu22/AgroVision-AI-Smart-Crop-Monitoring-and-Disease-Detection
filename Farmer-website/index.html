@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriMitra AI - Smart Agriculture, Weather Advisory & Multilingual AI Assistant</title>
+  <meta name="description" content="Next-generation agricultural intelligence portal for small and large farmers. Live microclimate weather advisories, AI crop disease scanner, multilingual voice & text chatbot, and step-by-step planting roadmaps.">
+  <meta name="theme-color" content="#15803d">
+
+  <!-- Favicon Sprout Icon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌱</text></svg>">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/models-datasets.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       Site Header & Navigation
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="navbar">
+        <!-- Logo -->
+        <a href="#hero" class="brand-logo" id="brandLogo">
+          <div class="brand-icon-wrap">🌱</div>
+          <div class="brand-text">
+            <div>Agri<span>Mitra</span> AI</div>
+            <span class="brand-tagline" id="brandTagline">Empowering Every Farmer</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <ul class="nav-links">
+          <li><a href="#weather" class="nav-link" id="navWeatherLink">🌦️ Upcoming Weather</a></li>
+          <li><a href="#scanner" class="nav-link" id="navScannerLink">📸 Crop AI Scanner</a></li>
+          <li><a href="#models-datasets" class="nav-link" id="navDatasetsLink">🧠 Models &amp; Datasets</a></li>
+          <li><a href="#chatbot" class="nav-link" id="navChatbotLink">🤖 Farmers AI-Chatbot</a></li>
+          <li><a href="#guides" class="nav-link" id="navGuidesLink">🌾 Farming Blueprints</a></li>
+          <li><a href="#tools" class="nav-link" id="navMandiLink">📊 Mandi Rates</a></li>
+        </ul>
+
+        <!-- Right Side Nav Actions -->
+        <div class="nav-actions">
+          <!-- Text Size Accessibility Toggle -->
+          <button id="textSizeToggleBtn" class="btn btn-outline" style="padding: 0.45rem 0.85rem; font-size: 0.85rem;" title="Toggle text size for outdoor readability">
+            🔍 A+
+          </button>
+
+          <!-- Multilingual Language Selector -->
+          <div class="lang-selector-wrap">
+            <button class="lang-select-btn" id="globalLangBtn" aria-label="Change Language">
+              <span>🌐</span>
+              <span id="currentLangLabel">English</span>
+              <span style="font-size: 0.75rem;">▼</span>
+            </button>
+            <div class="lang-dropdown" id="globalLangDropdown">
+              <button class="lang-option active" data-lang="hi">हिन्दी (Hindi)</button>
+              <button class="lang-option" data-lang="hinglish">Hinglish (रोमन हिन्दी)</button>
+              <button class="lang-option" data-lang="pa">ਪੰਜਾਬੀ (Punjabi)</button>
+              <button class="lang-option" data-lang="mr">मराठी (Marathi)</button>
+              <button class="lang-option" data-lang="te">తెలుగు (Telugu)</button>
+              <button class="lang-option" data-lang="ta">தமிழ் (Tamil)</button>
+              <button class="lang-option" data-lang="bn">বাংলা (Bengali)</button>
+              <button class="lang-option" data-lang="gu">ગુજરાતી (Gujarati)</button>
+              <button class="lang-option" data-lang="en">English (Global)</button>
+              <button class="lang-option" data-lang="es">Español (Spanish)</button>
+            </div>
+          </div>
+
+          <!-- Quick Voice Action -->
+          <button class="btn btn-voice-quick" id="quickVoiceNavBtn">
+            <span>🎙️</span>
+            <span>Speak Now</span>
+          </button>
+
+          <!-- Mobile Nav Toggle -->
+          <button class="mobile-toggle" id="mobileNavToggle" aria-label="Toggle navigation menu">
+            ☰
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         Hero Section with Male Farmer Photography & Key Features
+         ========================================================================== -->
+    <section class="section hero-section" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Hero Text Content -->
+          <div class="hero-content">
+            <div class="hero-kicker" id="heroKicker">
+              <span>🌾</span>
+              <span>Certified Smart Agricultural Intelligence Portal</span>
+            </div>
+
+            <h1 class="hero-title" id="heroTitle">
+              Smart Farming for <span class="gradient-text">Small & Large Farmers</span>
+            </h1>
+
+            <p class="hero-description" id="heroDesc">
+              Plan according to upcoming microclimate weather forecasts, scan and diagnose crop diseases with instant treatment solutions, and consult your multilingual Voice & Text AI Assistant in any language.
+            </p>
+
+            <div class="hero-cta-group">
+              <a href="#scanner" class="btn btn-primary" id="heroCtaScan">
+                <span>📸</span>
+                <span>Scan Crop Disease</span>
+              </a>
+              <a href="#weather" class="btn btn-gold" id="heroCtaWeather">
+                <span>🌦️</span>
+                <span>Check Weather Advisory</span>
+              </a>
+              <a href="#chatbot" class="btn btn-outline" id="heroCtaChat">
+                <span>🎙️</span>
+                <span>Speak to Agri-AI</span>
+              </a>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="hero-stats-bar">
+              <div class="hero-stat-item">
+                <h4>98.7%</h4>
+                <p>Pathology Scan Accuracy</p>
+              </div>
+              <div class="hero-stat-item">
+                <h4>7-Day</h4>
+                <p>Farm Weather Forecast</p>
+              </div>
+              <div class="hero-stat-item">
+                <h4>10+</h4>
+                <p>Spoken Languages</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Visual with Male Farmer Photograph -->
+          <div class="hero-visual">
+            <div class="hero-image-card">
+              <img src="assets/male_farmer_hero.jpg" alt="Smiling male farmer standing in a thriving crop field at golden sunrise">
+              <div class="hero-badge-live">
+                <span class="pulse-dot"></span>
+                <span>Live Agri-Intelligence Active</span>
+              </div>
+              <div class="hero-image-overlay">
+                <h3 class="hero-caption-title">Modern Farming with Confidence</h3>
+                <p class="hero-caption-sub">Real-time disease diagnostics, precision spray windows & soil health alerts</p>
+              </div>
+            </div>
+
+            <!-- Floating Widget 1: Crop Health Status -->
+            <div class="floating-card floating-card-1">
+              <div class="floating-icon gold">🌾</div>
+              <div class="floating-text">
+                <h5>Healthy Golden Wheat</h5>
+                <p>Optimum Tillering • Zero Rust</p>
+              </div>
+            </div>
+
+            <!-- Floating Widget 2: Weather Spray Window -->
+            <div class="floating-card floating-card-2">
+              <div class="floating-icon blue">💧</div>
+              <div class="floating-text">
+                <h5>Spraying Window: Optimal</h5>
+                <p>Wind &lt; 8 km/h • 0% Rain Risk</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Upcoming Weather & Microclimate Advisory Section
+         ========================================================================== -->
+    <section class="section weather-section" id="weather">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="badge-pill badge-blue">Microclimate Intelligence</span>
+          <h2 class="section-title" id="weatherSectionHeading">Upcoming Weather & Microclimate Advisory</h2>
+          <p class="section-subtitle" id="weatherSectionSub">
+            Precision 7-day agricultural forecasts tailored for spraying, irrigation timing, and fungal risk prevention.
+          </p>
+        </div>
+
+        <!-- Weather Global Search & Customization Toolbar -->
+        <div class="weather-search-bar-wrap">
+          <div class="weather-search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="weatherSearchInput" class="weather-search-input" placeholder="Search ANY city, village, district or country worldwide (e.g. Varanasi, Jaipur, Patna, London, Fresno)...">
+            <button id="weatherSearchBtn" class="btn-search-weather">Search Anywhere</button>
+          </div>
+          <button id="toggleCustomizeWeatherBtn" class="btn-customize-weather" title="Customize microclimate variables for your specific farm">
+            <span>⚙️ Customize Weather</span>
+          </button>
+        </div>
+
+        <!-- Quick Agricultural Hubs Chips -->
+        <div class="weather-quick-chips">
+          <span class="quick-chip-label">Quick Locations:</span>
+          <button class="weather-city-chip" data-city="Varanasi, Uttar Pradesh">📍 Varanasi</button>
+          <button class="weather-city-chip" data-city="Jaipur, Rajasthan">📍 Jaipur</button>
+          <button class="weather-city-chip" data-city="Patna, Bihar">📍 Patna</button>
+          <button class="weather-city-chip" data-city="Karnal, Haryana">📍 Karnal</button>
+          <button class="weather-city-chip" data-city="Hyderabad, Telangana">📍 Hyderabad</button>
+          <button class="weather-city-chip" data-city="Bathinda, Punjab">📍 Bathinda</button>
+          <button class="weather-city-chip" data-city="Nagpur, Maharashtra">📍 Nagpur</button>
+          <button class="weather-city-chip" data-city="Dhaka, Bangladesh">📍 Dhaka</button>
+          <button class="weather-city-chip" data-city="Fresno, California">📍 Fresno</button>
+        </div>
+
+        <!-- Interactive Weather Customization Panel -->
+        <div class="weather-customize-panel" id="weatherCustomizePanel" style="display: none;">
+          <div class="customize-panel-header">
+            <h4>🛠️ Customize Farm Microclimate & Conditions</h4>
+            <p>Adjust variables to simulate exact microclimate conditions on your farm and see real-time spray windows, irrigation, and disease risk recalculations.</p>
+          </div>
+          <div class="customize-controls-grid">
+            <div class="cust-control-group">
+              <label for="custLocationName">Farm / Location Name:</label>
+              <input type="text" id="custLocationName" value="My Farm - Custom Microclimate">
+            </div>
+            <div class="cust-control-group">
+              <label for="custTemp">Temperature: <span id="custTempVal">28°C</span></label>
+              <input type="range" id="custTemp" min="5" max="50" value="28">
+            </div>
+            <div class="cust-control-group">
+              <label for="custCondition">Sky Condition:</label>
+              <select id="custCondition">
+                <option value="☀️ Clear &amp; Sunny">☀️ Clear &amp; Sunny</option>
+                <option value="⛅ Partly Cloudy">⛅ Partly Cloudy</option>
+                <option value="🌤️ Warm &amp; Humid">🌤️ Warm &amp; Humid</option>
+                <option value="🌧️ Rainy / Showers">🌧️ Rainy / Showers</option>
+                <option value="⛈️ Thunderstorm">⛈️ Thunderstorm</option>
+                <option value="🌫️ Foggy / High Moisture">🌫️ Foggy / High Moisture</option>
+              </select>
+            </div>
+            <div class="cust-control-group">
+              <label for="custHumidity">Relative Humidity: <span id="custHumidityVal">60%</span></label>
+              <input type="range" id="custHumidity" min="10" max="100" value="60">
+            </div>
+            <div class="cust-control-group">
+              <label for="custWind">Wind Velocity: <span id="custWindVal">8 km/h</span></label>
+              <input type="range" id="custWind" min="0" max="45" value="8">
+            </div>
+            <div class="cust-control-group">
+              <label for="custRain">Rain Probability: <span id="custRainVal">10%</span></label>
+              <input type="range" id="custRain" min="0" max="100" value="10">
+            </div>
+            <div class="cust-control-group">
+              <label for="custSoil">Soil Moisture: <span id="custSoilVal">70%</span></label>
+              <input type="range" id="custSoil" min="10" max="100" value="70">
+            </div>
+          </div>
+          <div class="customize-actions">
+            <button id="applyCustomizeBtn" class="btn btn-primary btn-sm">✅ Apply Custom Weather</button>
+            <button id="resetCustomizeBtn" class="btn btn-secondary btn-sm">🔄 Reset to Live Weather</button>
+          </div>
+        </div>
+
+        <!-- Weather Location Controls Bar -->
+        <div class="weather-header-bar">
+          <div class="weather-location-select">
+            <label for="regionSelect" style="font-weight: 700; font-size: 0.9rem; color: #334155; white-space: nowrap;">
+              📍 Major Farm Regions:
+            </label>
+            <select id="regionSelect" class="weather-select-input">
+              <option value="punjab">Ludhiana, Punjab (Wheat &amp; Paddy Belt)</option>
+              <option value="maharashtra">Nashik, Maharashtra (Onion, Grapes &amp; Cotton)</option>
+              <option value="up">Meerut, Uttar Pradesh (Sugarcane &amp; Wheat)</option>
+              <option value="mp">Indore, Madhya Pradesh (Soybean &amp; Pulses)</option>
+              <option value="andhra">Guntur, Andhra Pradesh (Chili &amp; Cotton)</option>
+              <option value="gujarat">Rajkot, Gujarat (Groundnut &amp; Cotton)</option>
+              <option value="california">Fresno, California (Central Valley Orchards)</option>
+              <option value="iowa">Des Moines, Iowa (Corn &amp; Soybean Belt)</option>
+            </select>
+          </div>
+
+          <button id="gpsWeatherBtn" class="weather-gps-btn">
+            <span>📡 Use GPS Location</span>
+          </button>
+
+          <div class="weather-updated-pill">
+            <span>🟢</span>
+            <span id="weatherCurrentDate">Today • Live Microclimate</span>
+          </div>
+        </div>
+
+        <!-- Weather Main Dashboard -->
+        <div class="weather-dashboard-grid">
+          <!-- Primary Weather Card -->
+          <div class="weather-primary-card">
+            <div class="weather-bg-decor">☀️</div>
+            <div class="weather-primary-header">
+              <div>
+                <h3 class="weather-loc-title" id="weatherLocationTitle">Ludhiana, Punjab</h3>
+                <p class="weather-date-sub">Agricultural Weather Station • Real-Time Satellite Feed</p>
+              </div>
+            </div>
+
+            <div class="weather-temp-display">
+              <div class="weather-big-icon" id="weatherMainIcon">☀️</div>
+              <div>
+                <div class="weather-degree" id="weatherTempNumber">28°C</div>
+                <div class="weather-desc-pill" id="weatherDescText">Sunny & Clear</div>
+              </div>
+            </div>
+
+            <!-- 4 Microclimate Metrics -->
+            <div class="weather-metrics-grid">
+              <div class="metric-item">
+                <div class="metric-label">Relative Humidity</div>
+                <div class="metric-val" id="weatherHumidityVal">58%</div>
+              </div>
+              <div class="metric-item">
+                <div class="metric-label">Wind Velocity</div>
+                <div class="metric-val" id="weatherWindVal">7 km/h NW</div>
+              </div>
+              <div class="metric-item">
+                <div class="metric-label">Rain Probability</div>
+                <div class="metric-val" id="weatherRainVal">5%</div>
+              </div>
+              <div class="metric-item">
+                <div class="metric-label">Soil Moisture (Est)</div>
+                <div class="metric-val" id="weatherSoilVal">72%</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Farm Action Advisory Card -->
+          <div class="advisory-card-wrap">
+            <h4 class="advisory-title">
+              <span>🌾</span>
+              <span>Farmer Action Advisories for Today</span>
+            </h4>
+
+            <div class="advisory-list">
+              <!-- Spraying condition -->
+              <div class="advisory-item optimal" id="advisorySprayBox">
+                <div class="advisory-icon-badge">🚜</div>
+                <div class="advisory-text">
+                  <h5>Field Spraying: Optimal Window</h5>
+                  <p>Calm winds and clear skies. Excellent window for foliar fertilizer or pest spraying.</p>
+                </div>
+              </div>
+
+              <!-- Irrigation condition -->
+              <div class="advisory-item optimal" id="advisoryIrrBox">
+                <div class="advisory-icon-badge">💧</div>
+                <div class="advisory-text">
+                  <h5>Irrigation Advisory: Light Irrigation</h5>
+                  <p>Soil moisture is moderate. Schedule light drip irrigation for wheat/vegetables before 10 AM.</p>
+                </div>
+              </div>
+
+              <!-- Disease risk -->
+              <div class="advisory-item optimal" id="advisoryDisBox">
+                <div class="advisory-icon-badge">🔬</div>
+                <div class="advisory-text">
+                  <h5>Crop Health: Low Fungal Risk</h5>
+                  <p>Dry conditions suppress fungal spore germination. Continue routine monitoring.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7-Day Upcoming Weather Forecast -->
+        <h4 class="forecast-section-title">📅 7-Day Precision Agricultural Weather Forecast</h4>
+        <div class="forecast-grid" id="forecastGrid">
+          <!-- Dynamically populated by weather.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         AI Crop Disease Scanner & Pathology Section
+         ========================================================================== -->
+    <section class="section scanner-section" id="scanner">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="badge-pill badge-green">AI Plant Pathology</span>
+          <h2 class="section-title" id="scanSectionHeading">AI Crop Disease Scanner & Pathology</h2>
+          <p class="section-subtitle" id="scanSectionSub">
+            Upload or drop any crop foliage image. Our agronomic neural net scans leaf tissue, detects pathogens, and prescribes organic & chemical cures.
+          </p>
+        </div>
+
+        <!-- Pre-Trained Model Selection & Telemetry Bar -->
+        <div class="model-selector-bar">
+          <div class="model-select-group">
+            <label for="pretrainedModelSelect" style="font-weight: 700; font-size: 0.9rem; color: #1e293b; white-space: nowrap;">
+              🧠 Pre-Trained Model:
+            </label>
+            <select id="pretrainedModelSelect" class="model-dropdown-select">
+              <option value="mobilenet_v3">MobileNetV3-PlantVillage (Pre-trained) • 98.4% Acc • 18ms</option>
+              <option value="resnet50_field">ResNet50-AgriDoc (Field Clutter Pre-trained) • 99.1% Acc • 36ms</option>
+              <option value="vit_agri">ViT-Agri Vision Transformer (Attention-Guided) • 99.6% Acc • 52ms</option>
+              <option value="custom">Custom Pre-Trained Weights (.onnx / .tflite / .json)</option>
+            </select>
+          </div>
+
+          <div class="model-telemetry-badge" id="modelTelemetryBadge">
+            <span>🧠 Active Model: <strong>MobileNetV3-PlantVillage</strong></span>
+            <span>• Latency: <strong>18 ms</strong></span>
+            <span>• Accuracy: <strong>98.4%</strong></span>
+          </div>
+
+          <button type="button" class="btn btn-outline" id="toggleCustomModelUploadBtn" style="padding: 0.5rem 1rem; font-size: 0.85rem;">
+            <span>📤 Load Custom Model</span>
+          </button>
+        </div>
+
+        <!-- Custom Model Upload Panel (Toggleable) -->
+        <div class="custom-model-panel" id="customModelPanel">
+          <h5 style="margin-bottom: 0.4rem; color: #0f172a;">Upload Custom Fine-Tuned Model Weights</h5>
+          <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 0.85rem;">
+            Select your exported model checkpoint (.onnx, .tflite, or TensorFlow.js model.json)
+          </p>
+          <input type="file" id="customModelFileInput" accept=".json,.onnx,.tflite,.bin,.h5" style="font-size: 0.9rem;">
+        </div>
+
+        <div class="scanner-container-grid">
+          <!-- Left: Upload Zone & One-Click Test Samples -->
+          <div>
+            <div class="scanner-upload-box" id="scannerUploadBox">
+              <input type="file" id="cropFileInput" accept="image/*">
+              <div class="upload-icon-circle">📷</div>
+              <h4 class="upload-title">Drop Crop Leaf Photo or Tap to Upload</h4>
+              <p class="upload-sub">Supports JPG, PNG, WEBP from camera or gallery</p>
+              <div class="upload-btn-fake">
+                <span>📁 Select Image</span>
+              </div>
+            </div>
+
+            <!-- Instant One-Click Sample Photos -->
+            <div class="sample-crops-bar">
+              <div class="sample-crops-label">
+                <span>⚡</span>
+                <span>Or Test Instantly with Sample Photos:</span>
+              </div>
+              <div class="sample-chips-row">
+                <button class="sample-chip" data-sample="blight">
+                  <img src="assets/sample_tomato_blight.jpg" alt="Tomato Blight Sample">
+                  <div class="sample-chip-text">
+                    <h6>Tomato Leaf</h6>
+                    <span>Early Blight Disease</span>
+                  </div>
+                </button>
+                <button class="sample-chip" data-sample="wheat">
+                  <img src="assets/sample_healthy_wheat.jpg" alt="Healthy Wheat Sample">
+                  <div class="sample-chip-text">
+                    <h6>Wheat Crop</h6>
+                    <span>Healthy Foliage</span>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Visual Laser Scan HUD Viewport -->
+          <div class="scanner-viewport-wrap" id="scannerViewport">
+            <!-- Empty state -->
+            <div class="scanner-viewport-empty" id="scannerEmptyView">
+              <div class="scanner-empty-icon">🔬</div>
+              <h4 style="color: white; margin-bottom: 0.5rem; font-size: 1.2rem;">Scanner Standby Mode</h4>
+              <p>Upload a crop photo or choose a sample above to activate the AI pathology scanning radar.</p>
+            </div>
+
+            <!-- Active Scanning State -->
+            <div class="scanner-active-view" id="scannerActiveView" style="display: none;">
+              <img id="scannerPreviewImg" src="" alt="Crop scan preview">
+              
+              <!-- Laser Scanline -->
+              <div class="scanner-laser-line" id="scannerLaserLine"></div>
+
+              <!-- HUD Reticle Corners -->
+              <div class="scanner-hud-overlay">
+                <div class="hud-corner hud-tl"></div>
+                <div class="hud-corner hud-tr"></div>
+                <div class="hud-corner hud-bl"></div>
+                <div class="hud-corner hud-br"></div>
+              </div>
+            </div>
+
+            <!-- Status Strip & Progress Bar -->
+            <div class="scanner-status-strip">
+              <div class="scan-progress-box">
+                <div class="scan-progress-label">
+                  <span id="scanStatusText">Ready for image...</span>
+                  <span id="scanProgressPercent">0%</span>
+                </div>
+                <div class="progress-bar-bg">
+                  <div class="progress-bar-fill" id="scanProgressBar"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom: Comprehensive Diagnostic Report Card -->
+          <div class="diagnosis-result-wrap" id="diagnosisResultWrap">
+            <div class="diagnosis-header">
+              <div class="diagnosis-title-group">
+                <h3 id="diagCropTitle">Tomato (Solanum lycopersicum)</h3>
+                <div class="pathogen-name" id="diagDiseaseName">Early Blight (Alternaria solani)</div>
+              </div>
+              <div class="confidence-badge" id="diagConfidence">
+                <span>⚡ AI Confidence: 98.4%</span>
+              </div>
+            </div>
+
+            <!-- Top-3 Prediction Probabilities & Telemetry from Pre-Trained Model -->
+            <div class="prediction-probs-wrap" id="diagPredictionProbs"></div>
+
+            <div class="diagnosis-sections-grid">
+              <!-- Identified Symptoms -->
+              <div class="solution-box">
+                <h4 class="solution-box-title">
+                  <span>🔍</span>
+                  <span>Identified Symptoms</span>
+                </h4>
+                <ul class="solution-list" id="diagSymptomsList">
+                  <!-- Populated by JS -->
+                </ul>
+              </div>
+
+              <!-- Organic Solutions -->
+              <div class="solution-box organic">
+                <h4 class="solution-box-title">
+                  <span>🌿</span>
+                  <span>Organic / Biological Treatments</span>
+                </h4>
+                <ul class="solution-list" id="diagOrganicList">
+                  <!-- Populated by JS -->
+                </ul>
+              </div>
+
+              <!-- Chemical Treatments -->
+              <div class="solution-box chemical">
+                <h4 class="solution-box-title">
+                  <span>🧪</span>
+                  <span>Chemical / Fungicide Protocols</span>
+                </h4>
+                <ul class="solution-list" id="diagChemList">
+                  <!-- Populated by JS -->
+                </ul>
+              </div>
+            </div>
+
+            <!-- Prevention & Actions Bar -->
+            <div class="solution-box prevent" style="margin-bottom: 1.5rem;">
+              <h4 class="solution-box-title">
+                <span>🛡️</span>
+                <span>Long-Term Prevention & Soil Health</span>
+              </h4>
+              <ul class="solution-list" id="diagPrevList">
+                <!-- Populated by JS -->
+              </ul>
+            </div>
+
+            <div class="diagnosis-actions">
+              <button class="btn btn-primary" id="askBotAboutDiseaseBtn">
+                <span>💬</span>
+                <span>Discuss This Diagnosis with Farmers AI-Assistant</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Farmers Multilingual AI Chatbot & Voice Assistant Section
+         ========================================================================== -->
+    <section class="section chatbot-section" id="chatbot">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="badge-pill badge-gold">24/7 Agri-Assistant</span>
+          <h2 class="section-title" id="chatSectionHeading">Farmers Multilingual AI-Chatbot</h2>
+          <p class="section-subtitle" id="chatSectionSub">
+            Ask anything by voice or text in any language. Learn how to plant any crop, diagnose issues, and get verified solutions.
+          </p>
+        </div>
+
+        <div class="chatbot-wrapper">
+          <!-- Chat Header -->
+          <div class="chat-header">
+            <div class="chat-bot-info">
+              <div class="chat-avatar-wrap">
+                <img src="assets/farmer_portrait.jpg" alt="Farmer Assistant Avatar" class="chat-avatar">
+                <span class="chat-status-dot"></span>
+              </div>
+              <div class="chat-bot-name">
+                <h4>KisanMitra AI Assistant</h4>
+                <p><span>🟢 Online</span> • Multilingual Voice &amp; Text</p>
+              </div>
+            </div>
+
+            <div class="chat-controls">
+              <!-- Language Selector for Chat -->
+              <select id="chatLanguageSelect" class="chat-lang-select" title="Choose your conversational language">
+                <option value="hi" selected>हिन्दी (Hindi)</option>
+                <option value="hinglish">Hinglish (रोमन हिन्दी / Mix)</option>
+                <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
+                <option value="mr">मराठी (Marathi)</option>
+                <option value="te">తెలుగు (Telugu)</option>
+                <option value="ta">தமிழ் (Tamil)</option>
+                <option value="bn">বাংলা (Bengali)</option>
+                <option value="gu">ગુજરાતી (Gujarati)</option>
+                <option value="en">English (Global)</option>
+                <option value="es">Español (Spanish)</option>
+              </select>
+
+              <!-- Audio Readout Toggle -->
+              <button class="chat-sound-toggle" id="chatSoundToggle" title="Voice readout enabled">
+                🔊
+              </button>
+            </div>
+          </div>
+
+          <!-- Voice Listening Banner -->
+          <div class="voice-listening-banner" id="voiceListeningBanner">
+            <div style="display: flex; align-items: center; gap: 0.6rem;">
+              <span id="voiceListeningText">🔴 Listening to your voice... Speak now!</span>
+            </div>
+            <div class="sound-waves" id="liveSoundWaves">
+              <div class="sound-bar"></div>
+              <div class="sound-bar"></div>
+              <div class="sound-bar"></div>
+              <div class="sound-bar"></div>
+              <div class="sound-bar"></div>
+            </div>
+          </div>
+
+          <!-- Chat Messages Scroll Area -->
+          <div class="chat-messages" id="chatMessages">
+            <!-- Initial AI Greeting Message -->
+            <div class="message-row bot">
+              <div class="msg-avatar">
+                <img src="assets/farmer_portrait.jpg" alt="AI Agri-Assistant">
+              </div>
+              <div class="msg-bubble">
+                <div class="msg-text">
+                  🌾 <strong>राम-राम किसान भाई! नमस्ते!</strong> 🙏 मैं आपका एआई कृषि मित्र हूँ।<br><br>
+                  आप <strong>माइक (🎙️) दबाकर अपनी भाषा (हिन्दी, Hinglish, ਪੰਜਾਬੀ, मराठी, తెలుగు, தமிழ், বাংলা, English) में बोल सकते हैं</strong> या नीचे लिखकर पूछ सकते हैं। फसल के रोग, खाद (NPK), बीज बुवाई, पानी या मौसम के बारे में कुछ भी पूछें!
+                </div>
+                <div class="msg-footer">
+                  <span>Just now</span>
+                  <button class="tts-btn" onclick="ChatbotModule.speakRaw('राम-राम किसान भाई! नमस्ते! मैं आपका एआई कृषि मित्र हूँ। आप माइक दबाकर किसी भी भाषा में बोलकर या लिखकर सवाल पूछ सकते हैं!')">
+                    🔊 Listen / सुनें
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Suggestion Chips -->
+          <div class="quick-prompts-bar" id="chatQuickPromptsBar">
+            <button class="quick-chip" data-query="गेहूं की अधिक पैदावार के लिए क्या करें?">🌾 गेहूं की अधिक पैदावार</button>
+            <button class="quick-chip" data-query="टमाटर का झुलसा रोग (Blight) कैसे ठीक करें?">🍅 टमाटर झुलसा रोग इलाज</button>
+            <button class="quick-chip" data-query="घर पर प्राकृतिक जीवामृत कैसे बनाएं?">🌱 घर पर देसी जीवामृत</button>
+            <button class="quick-chip" data-query="कपास में गुलाबी सुंडी का पक्का इलाज क्या है?">☁️ कपास गुलाबी सुंडी</button>
+            <button class="quick-chip" data-query="धान में पानी और यूरिया देने का सही समय">🍚 धान पानी व खाद</button>
+            <button class="quick-chip" data-query="किसान हेल्पलाइन और पीएम किसान का नंबर">📞 किसान हेल्पलाइन नंबर</button>
+          </div>
+
+          <!-- Input Bar with Microphone -->
+          <div class="chat-input-area">
+            <button class="btn-mic" id="chatMicBtn" title="Click to Speak in your chosen language">
+              🎙️
+            </button>
+
+            <div class="chat-input-wrap">
+              <input type="text" id="chatInput" class="chat-input" placeholder="माइक (🎙️) दबाकर बोलें या किसी भी भाषा में लिखें...">
+            </div>
+
+            <button class="btn-send" id="chatSendBtn" title="Send Question">
+              ➤
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           Interactive Multilingual Voice Assistant Overlay Modal
+           ====================================================================== -->
+      <div class="voice-modal-overlay" id="voiceModalOverlay">
+        <div class="voice-modal-card">
+          <button class="voice-modal-close" id="voiceModalCloseBtn" aria-label="Close voice assistant">✕</button>
+
+          <div class="voice-status-header">
+            <div class="voice-pulse-ring">
+              <div class="voice-ring-wave"></div>
+              <div class="voice-ring-wave delay"></div>
+              <button class="voice-main-mic-btn active" id="voiceModalMicToggle" title="Click to toggle recording">🎙️</button>
+            </div>
+            <h3 id="voiceModalStatusTitle">🔴 Listening... Speak Now!</h3>
+            <p id="voiceModalStatusSub">बोलो किसान भाई, हम सुन रहे हैं</p>
+          </div>
+
+          <!-- Language Selector Pills for Voice Recognition -->
+          <div class="voice-lang-pills-wrap">
+            <span class="voice-lang-pills-label">🌐 Select Speaking Language / भाषा चुनें:</span>
+            <div class="voice-lang-pills" id="voiceLangPills">
+              <button class="voice-lang-pill active" data-lang="hi">🇮🇳 हिन्दी</button>
+              <button class="voice-lang-pill" data-lang="hinglish">Hinglish</button>
+              <button class="voice-lang-pill" data-lang="pa">ਪੰਜਾਬੀ</button>
+              <button class="voice-lang-pill" data-lang="mr">मराठी</button>
+              <button class="voice-lang-pill" data-lang="te">తెలుగు</button>
+              <button class="voice-lang-pill" data-lang="ta">தமிழ்</button>
+              <button class="voice-lang-pill" data-lang="bn">বাংলা</button>
+              <button class="voice-lang-pill" data-lang="gu">ગુજરાતી</button>
+              <button class="voice-lang-pill" data-lang="en">English</button>
+              <button class="voice-lang-pill" data-lang="es">Español</button>
+            </div>
+          </div>
+
+          <!-- Animated Sound Wave Visualizer -->
+          <div class="modal-sound-waves" id="modalSoundWaves">
+            <div class="m-wave"></div>
+            <div class="m-wave"></div>
+            <div class="m-wave"></div>
+            <div class="m-wave"></div>
+            <div class="m-wave"></div>
+            <div class="m-wave"></div>
+            <div class="m-wave"></div>
+          </div>
+
+          <!-- Real-Time Voice Transcription Box -->
+          <div class="voice-transcript-box" id="voiceTranscriptBox">
+            <span class="transcript-placeholder" id="transcriptPlaceholder">
+              Say something like: "टमाटर में झुलसा रोग का इलाज" or "गेहूं में पहला पानी कब लगाएं"...
+            </span>
+            <div class="transcript-live-text" id="transcriptLiveText"></div>
+          </div>
+
+          <!-- Quick Spoken Suggestion Chips -->
+          <div class="voice-suggestions-wrap">
+            <span class="voice-suggestions-label">💡 Or tap one of these voice questions:</span>
+            <div class="voice-suggestions-chips" id="voiceSuggestionsChips">
+              <!-- Dynamically populated by ChatbotModule -->
+            </div>
+          </div>
+
+          <!-- Modal Actions -->
+          <div class="voice-modal-actions">
+            <button class="btn btn-secondary btn-sm" id="voiceModalCancelBtn">Cancel / बंद करें</button>
+            <button class="btn btn-primary btn-sm" id="voiceModalSendBtn">Send to AI (भेजें) ➤</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Crop Farming Guides & Planting Blueprints Section
+         ========================================================================== -->
+    <section class="section farming-guides-section" id="guides">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="badge-pill badge-green">End-to-End Cultivation</span>
+          <h2 class="section-title">Comprehensive Crop Blueprints & How to Farm</h2>
+          <p class="section-subtitle">
+            Scientific, step-by-step planting roadmaps from land preparation and seed bio-priming to harvesting and post-harvest storage.
+          </p>
+        </div>
+
+        <!-- Filter tabs -->
+        <div class="guide-filter-tabs">
+          <button class="guide-tab-btn active" data-filter="all">All Crops</button>
+          <button class="guide-tab-btn" data-filter="cereals">Cereals & Grains</button>
+          <button class="guide-tab-btn" data-filter="vegetables">Vegetables</button>
+          <button class="guide-tab-btn" data-filter="cash">Cash Crops & Fiber</button>
+        </div>
+
+        <!-- Crop Cards Grid -->
+        <div class="crop-cards-grid" id="cropCardsGrid">
+          <!-- Dynamically populated by farming-guide.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Farmer Utility Tools: NPK Fertilizer Calculator & Mandi Rates
+         ========================================================================== -->
+    <section class="section tools-section" id="tools">
+      <div class="container">
+        <div class="tools-grid">
+          <!-- NPK Fertilizer Calculator -->
+          <div class="tool-card">
+            <div class="tool-header">
+              <h3><span>🧪</span> NPK Fertilizer Dosage Calculator</h3>
+              <p>Calculate exact bags of Urea, DAP, and Potash based on your field acreage.</p>
+            </div>
+
+            <div class="calc-form-grid">
+              <div class="form-group">
+                <label for="calcCropSelect">Select Crop Type:</label>
+                <select id="calcCropSelect" class="form-control">
+                  <option value="wheat">Wheat (गेहूं)</option>
+                  <option value="rice">Paddy / Rice (धान)</option>
+                  <option value="tomato">Tomato (टमाटर)</option>
+                  <option value="cotton">Cotton (कपास)</option>
+                  <option value="potato">Potato (आलू)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="calcAcresInput">Farm Area (Acres):</label>
+                <input type="number" id="calcAcresInput" class="form-control" value="2" min="0.5" step="0.5">
+              </div>
+            </div>
+
+            <button class="btn btn-primary" id="calcFertilizerBtn" style="width: 100%; margin-bottom: 1.5rem;">
+              <span>⚡ Calculate Fertilizer Bags</span>
+            </button>
+
+            <!-- Results Display -->
+            <div class="calc-results-box">
+              <div class="calc-res-item">
+                <h5>Urea (46% N)</h5>
+                <div class="calc-res-val" id="calcResUrea">5.0 Bags</div>
+                <div class="calc-res-sub">45 kg / bag</div>
+              </div>
+              <div class="calc-res-item">
+                <h5>DAP (18:46:0)</h5>
+                <div class="calc-res-val" id="calcResDap">2.4 Bags</div>
+                <div class="calc-res-sub">50 kg / bag</div>
+              </div>
+              <div class="calc-res-item">
+                <h5>MOP (Potash)</h5>
+                <div class="calc-res-val" id="calcResMop">1.6 Bags</div>
+                <div class="calc-res-sub">50 kg / bag</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mandi Wholesale Market Rates -->
+          <div class="tool-card">
+            <div class="tool-header">
+              <h3><span>📈</span> Live Mandi Crop Market Rates</h3>
+              <p>Simulated wholesale benchmark prices across major agricultural markets.</p>
+            </div>
+
+            <div class="mandi-table-wrap">
+              <table class="mandi-table">
+                <thead>
+                  <tr>
+                    <th>Commodity</th>
+                    <th>Min</th>
+                    <th>Max</th>
+                    <th>Modal Price</th>
+                    <th>24h Trend</th>
+                  </tr>
+                </thead>
+                <tbody id="mandiTableBody">
+                  <!-- Populated by JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         Global Agricultural Datasets & Pre-Trained Models Hub
+         ========================================================================== -->
+    <section class="section datasets-section" id="models-datasets">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="badge-pill badge-blue">Open Agricultural Data &amp; AI</span>
+          <h2 class="section-title">Global Agricultural Datasets &amp; Pre-Trained Models Hub</h2>
+          <p class="section-subtitle">
+            Leverage curated, peer-reviewed crop pathology datasets with over 150,000+ labeled images for training, fine-tuning, and direct testing in our AI scanner.
+          </p>
+        </div>
+
+        <!-- Filter tabs for datasets -->
+        <div class="dataset-filter-tabs">
+          <button class="dataset-tab-btn active" data-filter="all">All Open Datasets</button>
+          <button class="dataset-tab-btn" data-filter="general">Gold Standard (PlantVillage)</button>
+          <button class="dataset-tab-btn" data-filter="field">Real-Field In-Situ Noise</button>
+          <button class="dataset-tab-btn" data-filter="tropical">Tropical &amp; Sub-Continent</button>
+        </div>
+
+        <!-- Dataset Cards Grid -->
+        <div class="dataset-cards-grid" id="datasetCardsGrid">
+          <!-- Dynamically populated by models-datasets.js -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       Seed-to-Harvest Planting Blueprint Modal
+       ========================================================================== -->
+  <div class="modal-backdrop" id="blueprintModalBackdrop">
+    <div class="blueprint-modal">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h3 id="blueprintModalTitle">Wheat - Complete Seed-to-Harvest Roadmap</h3>
+          <p id="blueprintModalSubtitle" style="font-size: 0.85rem; color: #64748b; margin-top: 0.25rem;">
+            Botanical: Triticum aestivum | Season: Rabi
+          </p>
+        </div>
+        <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">✕</button>
+      </div>
+
+      <div class="modal-body" id="blueprintRoadmapSteps">
+        <!-- Steps populated by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       Pre-Trained Model & Training Code Modal
+       ========================================================================== -->
+  <div class="modal-backdrop" id="codeModalBackdrop">
+    <div class="blueprint-modal">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <h3 id="codeModalTitle">PyTorch / TensorFlow Training Blueprint</h3>
+          <p id="codeModalSubtitle" style="font-size: 0.85rem; color: #64748b; margin-top: 0.25rem;">
+            Pre-trained Transfer Learning Architecture
+          </p>
+        </div>
+        <button class="modal-close-btn" id="codeModalCloseBtn" aria-label="Close modal">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <h5 style="margin-bottom: 0.5rem; color: #0f172a;">Python Transfer Learning Script:</h5>
+        <pre class="code-modal-content" id="codeModalPre"></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       Footer & Emergency Farmer Helpline
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>AgriMitra AI</h4>
+          <p>
+            Empowering small and large farmers with artificial intelligence, microclimate weather advisories, voice-activated agricultural support, and verified crop pathology solutions.
+          </p>
+          <div class="helpline-box">
+            <span style="font-size: 0.85rem; color: #94a3b8; display: block;">National Kisan Call Center (Toll-Free):</span>
+            <span class="helpline-num">📞 1800-180-1551</span>
+            <span style="font-size: 0.75rem; color: #86efac;">Active 6:00 AM to 10:00 PM • 22 Regional Languages</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Quick Features</h5>
+          <ul class="footer-links">
+            <li><a href="#weather">Upcoming Weather Forecast</a></li>
+            <li><a href="#scanner">Crop Pathology Scanner</a></li>
+            <li><a href="#models-datasets">Pre-Trained Models &amp; Datasets</a></li>
+            <li><a href="#chatbot">Multilingual AI Chatbot</a></li>
+            <li><a href="#guides">Seed-to-Harvest Blueprints</a></li>
+            <li><a href="#tools">NPK Fertilizer Calculator</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Supported Crops</h5>
+          <ul class="footer-links">
+            <li><a href="#guides">Wheat (गेहूं)</a></li>
+            <li><a href="#guides">Rice / Paddy (धान)</a></li>
+            <li><a href="#guides">Tomato (टमाटर)</a></li>
+            <li><a href="#guides">Cotton (कपास)</a></li>
+            <li><a href="#guides">Potato (आलू)</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Farmer Advisory</h5>
+          <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.5; margin-bottom: 1rem;">
+            Follow recommended waiting periods before harvesting after applying any chemical fungicide or pesticide. Adopt integrated pest management (IPM) for sustainable soil health.
+          </p>
+          <div style="font-size: 0.8rem; color: #f59e0b;">
+            🌿 Always wear protective gear during spraying.
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 AgriMitra AI Portal. Dedicated to small and large farmers worldwide.</p>
+        <p>Built with ❤️ for Global Agriculture</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Scripts -->
+  <script src="js/weather.js"></script>
+  <script src="js/scanner.js"></script>
+  <script src="js/chatbot.js"></script>
+  <script src="js/farming-guide.js"></script>
+  <script src="js/models-datasets.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
